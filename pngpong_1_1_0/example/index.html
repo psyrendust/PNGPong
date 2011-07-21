@@ -1,0 +1,101 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
+<title>PNGPong Example Page</title>
+<!--<script type="text/javascript" src="../swfobject.js"></script>//-->
+<script type="text/javascript" src="../pngpong.js"></script>
+<script type="text/javascript">
+function openAlertWindow(inMsg)
+{
+	alert(inMsg);
+}
+</script>
+
+<style type="text/css">
+<!--
+body,td,th {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 14px;
+	color: #333333;
+}
+body {
+	background-color: #FFFFFF;
+	margin: 20px;
+}
+div {
+	padding:0px;
+	margin:0px;
+	border:0px;
+}
+a {
+	color: #333333;
+}
+.bg1 {
+	background-color:#A3C5FF;
+	position:absolute;
+	top:50px;
+	left:20px;
+	width:98px;
+	height:500px;
+	z-index:1;
+	border-width:1px;
+	border-color:#000000;
+	border-style:solid;
+}
+.bg2 {
+	background-color:#8CD58C;
+	position:absolute;
+	top:50px;
+	left:120px;
+	width:99px;
+	height:500px;
+	z-index:2;
+	border-width:1px 1px 1px 0px;
+	border-color:#000000;
+	border-style:solid;
+}
+.container {
+	position:absolute;
+	top:80px;
+	left:24px;
+	width:200px;
+	z-index:10;
+}
+.egStatic {
+	width:192px;
+	height:100px;
+}
+.egButton {
+	width:199px;
+	height:48px;
+}
+//-->
+</style>
+</head>
+
+<body>
+<h3><a href="http://blog.psyrendust.com/pngpong/" target="_blank">PNGPong</a> Example Page</h3>
+<div class="bg1"></div><div class="bg2"></div>
+<div class="container">	
+	<div>&nbsp;static image example</div>
+	<div id="egStatic" class="egButton"></div><br /><br /><br /><br />
+	<script type="text/javascript">pngpong.serve("egStatic", {out:"static.png"});</script>
+	
+	<div>&nbsp;button test example</div>
+	<div id="buttonTest" class="egButton"></div><br />
+	<script type="text/javascript">pngpong.serve("buttonTest", {out:"button_out.png", over:"button_over.png", down:"button_down.png", url:"http://www.google.com", browserTarget:"_blank"});</script>
+
+	<div>&nbsp;button calling js example</div>
+	<div id="buttonJs" class="egButton"></div><br />
+	<script type="text/javascript">pngpong.serve("buttonJs", {out:"button_out.png", over:"button_over.png", method:"openAlertWindow", params:"serve button js example"});</script>
+	
+	<div>&nbsp;swap image example</div> 
+	<div>&nbsp;<a href="javascript:void(0);" onmousedown="pngpong.swapImage('egSwapImage', 'button_over.png');">swap red</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="javascript:void(0);" onmousedown="pngpong.swapImage('egSwapImage', 'button_out.png');">swap grey</a></div><br/>
+	<div id="egSwapImage" class="egButton"></div><br />
+	<script type="text/javascript">pngpong.serve("egSwapImage", {out:"button_out.png"});</script>
+	
+	<div>&nbsp;<a href="javascript:void(0);" onmousedown="pngpong.alpha('egStatic', 50);">alpha 50%</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="javascript:void(0);" onmousedown="pngpong.alpha('egStatic', 100);">alpha 100%</a></div><br/>
+</div>
+</body>
+</html>
